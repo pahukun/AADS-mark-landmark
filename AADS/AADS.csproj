@@ -167,13 +167,13 @@
       <DependentUpon>main.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Airport\main.cs">
-      <SubType>Form</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Views\Airport\main.Designer.cs">
       <DependentUpon>main.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\City\main.cs">
-      <SubType>Form</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Views\City\main.Designer.cs">
       <DependentUpon>main.cs</DependentUpon>
@@ -239,7 +239,7 @@
       <DependentUpon>main.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\FireUnit\main.cs">
-      <SubType>Form</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Views\FireUnit\main.Designer.cs">
       <DependentUpon>main.cs</DependentUpon>
@@ -269,11 +269,12 @@
       <DependentUpon>main.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Landmark\main.cs">
-      <SubType>Form</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Views\Landmark\main.Designer.cs">
       <DependentUpon>main.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Landmark\MarkerLandmark.cs" />
     <Compile Include="Views\Pairing\main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -335,13 +336,13 @@
       <DependentUpon>main.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\VitalAsset\main.cs">
-      <SubType>Form</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Views\VitalAsset\main.Designer.cs">
       <DependentUpon>main.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\WeaponsBattery\main.cs">
-      <SubType>Form</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Views\WeaponsBattery\main.Designer.cs">
       <DependentUpon>main.cs</DependentUpon>
@@ -538,7 +539,60 @@
   <ItemGroup>
     <None Include="Resources\45cf3151e954736717470cc74e34b7a0-removebg-preview.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Resources\AADS-icons\Airport.svg" />
+    <Content Include="Resources\AADS-icons\City.svg" />
+    <Content Include="Resources\AADS-icons\corridor.svg" />
+    <Content Include="Resources\AADS-icons\FireUnit.svg" />
+    <Content Include="Resources\AADS-icons\FIxedPoint.svg" />
+    <Content Include="Resources\AADS-icons\Landmark.svg" />
+    <Content Include="Resources\AADS-icons\Landmark\001-airport.png" />
+    <Content Include="Resources\AADS-icons\Landmark\002-atm.png" />
+    <Content Include="Resources\AADS-icons\Landmark\003-bicycle.png" />
+    <Content Include="Resources\AADS-icons\Landmark\004-bus stop.png" />
+    <Content Include="Resources\AADS-icons\Landmark\005-car repair.png" />
+    <Content Include="Resources\AADS-icons\Landmark\006-cemetery.png" />
+    <Content Include="Resources\AADS-icons\Landmark\007-church.png" />
+    <Content Include="Resources\AADS-icons\Landmark\008-coffee.png" />
+    <Content Include="Resources\AADS-icons\Landmark\009-credit card.png" />
+    <Content Include="Resources\AADS-icons\Landmark\010-dessert.png" />
+    <Content Include="Resources\AADS-icons\Landmark\011-education.png" />
+    <Content Include="Resources\AADS-icons\Landmark\012-money exchange.png" />
+    <Content Include="Resources\AADS-icons\Landmark\013-fast food.png" />
+    <Content Include="Resources\AADS-icons\Landmark\014-hospital.png" />
+    <Content Include="Resources\AADS-icons\Landmark\015-hotel.png" />
+    <Content Include="Resources\AADS-icons\Landmark\016-hotel sign.png" />
+    <Content Include="Resources\AADS-icons\Landmark\017-house.png" />
+    <Content Include="Resources\AADS-icons\Landmark\018-information.png" />
+    <Content Include="Resources\AADS-icons\Landmark\019-money.png" />
+    <Content Include="Resources\AADS-icons\Landmark\020-mosque.png" />
+    <Content Include="Resources\AADS-icons\Landmark\021-mountain.png" />
+    <Content Include="Resources\AADS-icons\Landmark\022-museum.png" />
+    <Content Include="Resources\AADS-icons\Landmark\023-parking.png" />
+    <Content Include="Resources\AADS-icons\Landmark\024-petrol station.png" />
+    <Content Include="Resources\AADS-icons\Landmark\025-phone.png" />
+    <Content Include="Resources\AADS-icons\Landmark\026-police station.png" />
+    <Content Include="Resources\AADS-icons\Landmark\027-post office.png" />
+    <Content Include="Resources\AADS-icons\Landmark\028-restaurant.png" />
+    <Content Include="Resources\AADS-icons\Landmark\029-sea.png" />
+    <Content Include="Resources\AADS-icons\Landmark\030-shinkansen.png" />
+    <Content Include="Resources\AADS-icons\Landmark\031-ship.png" />
+    <Content Include="Resources\AADS-icons\Landmark\032-shopping.png" />
+    <Content Include="Resources\AADS-icons\Landmark\033-taxi.png" />
+    <Content Include="Resources\AADS-icons\Landmark\034-tent.png" />
+    <Content Include="Resources\AADS-icons\Landmark\035-toilet.png" />
+    <Content Include="Resources\AADS-icons\Landmark\036-train.png" />
+    <Content Include="Resources\AADS-icons\Landmark\037-transfer.png" />
+    <Content Include="Resources\AADS-icons\Landmark\038-wifi.png" />
+    <Content Include="Resources\AADS-icons\Line.svg" />
+    <Content Include="Resources\AADS-icons\Marker.svg" />
+    <Content Include="Resources\AADS-icons\polygon.svg" />
+    <Content Include="Resources\AADS-icons\Route.svg" />
+    <Content Include="Resources\AADS-icons\Track.svg" />
+    <Content Include="Resources\AADS-icons\unit.svg" />
+    <Content Include="Resources\AADS-icons\VitalAsset.svg" />
+    <Content Include="Resources\AADS-icons\WeaponBattery.svg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
