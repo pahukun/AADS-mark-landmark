@@ -1,4 +1,6 @@
 ﻿using GMap.NET;
+using GMap.NET.WindowsForms;
+using Net_GmapMarkerWithLabel;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,7 +19,7 @@ namespace AADS.Views.Landmark
         {
             InitializeComponent();
         }
-
+        
         //Location Landmark//
         public void setPosition(PointLatLng p)
         {
@@ -49,6 +51,7 @@ namespace AADS.Views.Landmark
 
         //Type Landmark//
 
+        MarkerLandmark markerLandmark = new MarkerLandmark();
         private void cmbTypeLandmark_DropDown(object sender, EventArgs e)
         {
             cmbTypeLandmark.ForeColor = Color.Black;
@@ -73,11 +76,27 @@ namespace AADS.Views.Landmark
         {
             if (cmbTypeLandmark.SelectedIndex == 0)
             {
-
+                markerLandmark.icon = (Bitmap)Image.FromFile("AADS-icons/icon/Landmark.png");   
             }
-            else
+            else if (cmbTypeLandmark.SelectedIndex == 1)
             {
-
+                markerLandmark.icon = (Bitmap)Image.FromFile("AADS-icons/Landmark/014-hospital.png");
+            }
+            else if (cmbTypeLandmark.SelectedIndex == 2)
+            {
+                markerLandmark.icon = (Bitmap)Image.FromFile("AADS-icons/Landmark/026-police station.png");
+            }
+            else if (cmbTypeLandmark.SelectedIndex == 3)
+            {
+                markerLandmark.icon = (Bitmap)Image.FromFile("AADS-icons/Landmark/040-royal palace.png");
+            }
+            else if (cmbTypeLandmark.SelectedIndex == 4)
+            {
+                markerLandmark.icon = (Bitmap)Image.FromFile("AADS-icons/Landmark/011-education.png");
+            }
+            else if (cmbTypeLandmark.SelectedIndex == 5)
+            {
+                markerLandmark.icon = (Bitmap)Image.FromFile("AADS-icons/Landmark/039-temple.png");
             }
         }
 
@@ -132,10 +151,33 @@ namespace AADS.Views.Landmark
         //Button//
         private void button1_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtLabelLandmark.Text))
+            if (txtLocationLandmark.Text == "Select Location on Map")
             {
-
+                MessageBox.Show("Please Select Location on Map", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
+            if (cmbTypeLandmark.Text == "Please Select Type of Landmark")
+            {
+                MessageBox.Show("Please Select Type of Landmark", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            else if (txtLabelLandmark.Text == "Short Name")
+            {
+                txtLabelLandmark.Text = "";
+            }
+            var marker = new GmapMarkerWithLabel(PositionConverter.ParsePointFromString(txtLocationLandmark.Text), txtLabelLandmark.Text.ToString(), markerLandmark.icon, 20);
+            GMapOverlay overlay = mainForm.GetInstance().GetOverlay("markersP");
+            overlay.Markers.Add(marker);
+            mainForm.GetInstance().GetmainMap().Overlays.Add(overlay);
+           
+            txtLabelLandmark.Text = "Short Name";
+            txtLabelLandmark.ForeColor = Color.Gray;
+
+            txtNameLandmark.Text = "Landmark Name";
+            txtNameLandmark.ForeColor = Color.Gray;
+
+            cmbTypeLandmark.Text = "Please Select Type of Landmark";
+            cmbTypeLandmark.ForeColor = Color.Gray;
         }
 
 

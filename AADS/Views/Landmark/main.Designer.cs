@@ -39,7 +39,7 @@ namespace AADS.Views.Landmark
             this.txtLabelLandmark = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.cmbTypeLandmark = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnAddMarker = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -138,7 +138,11 @@ namespace AADS.Views.Landmark
             this.cmbTypeLandmark.FormattingEnabled = true;
             this.cmbTypeLandmark.Items.AddRange(new object[] {
             "testMarker",
-            "test2"});
+            "Hospital",
+            "Police Station",
+            "Royal Palace",
+            "School / University",
+            "Temple"});
             this.cmbTypeLandmark.Location = new System.Drawing.Point(83, 121);
             this.cmbTypeLandmark.Name = "cmbTypeLandmark";
             this.cmbTypeLandmark.Size = new System.Drawing.Size(180, 21);
@@ -148,21 +152,22 @@ namespace AADS.Views.Landmark
             this.cmbTypeLandmark.SelectedIndexChanged += new System.EventHandler(this.cmbTypeLandmark_SelectedIndexChanged);
             this.cmbTypeLandmark.Leave += new System.EventHandler(this.cmbTypeLandmark_Leave);
             // 
-            // button1
+            // btnAddMarker
             // 
-            this.button1.Location = new System.Drawing.Point(106, 241);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(72, 47);
-            this.button1.TabIndex = 64;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnAddMarker.Location = new System.Drawing.Point(108, 244);
+            this.btnAddMarker.Name = "btnAddMarker";
+            this.btnAddMarker.Size = new System.Drawing.Size(72, 47);
+            this.btnAddMarker.TabIndex = 64;
+            this.btnAddMarker.Text = "Add Marker";
+            this.btnAddMarker.UseVisualStyleBackColor = true;
+            this.btnAddMarker.Click += new System.EventHandler(this.button1_Click);
             // 
             // main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.button1);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(40)))), ((int)(((byte)(49)))));
+            this.Controls.Add(this.btnAddMarker);
             this.Controls.Add(this.cmbTypeLandmark);
             this.Controls.Add(this.txtLabelLandmark);
             this.Controls.Add(this.label5);
@@ -193,6 +198,6 @@ namespace AADS.Views.Landmark
         private System.Windows.Forms.TextBox txtLabelLandmark;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox cmbTypeLandmark;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnAddMarker;
     }
 }
