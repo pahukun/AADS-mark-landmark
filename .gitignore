@@ -9,3 +9,4 @@
 !/AADS/bin/Debug/NETGeographic_d.dll
 # except config files
 !/AADS/bin/Debug/Maps.json
+!/AADS/bin/Debug/AADS-icons/*
