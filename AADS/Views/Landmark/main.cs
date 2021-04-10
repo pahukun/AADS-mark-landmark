@@ -1,5 +1,6 @@
 ﻿using GMap.NET;
 using GMap.NET.WindowsForms;
+using GMap.NET.WindowsForms.Markers;
 using Net_GmapMarkerWithLabel;
 using System;
 using System.Collections.Generic;
@@ -19,7 +20,9 @@ namespace AADS.Views.Landmark
         {
             InitializeComponent();
         }
-        
+        Dictionary<GMapMarker, MarkerLandmarkDetail> dicMarker = new Dictionary<GMapMarker, MarkerLandmarkDetail>();
+        GMapMarker getMarker = null;
+
         //Location Landmark//
         public void setPosition(PointLatLng p)
         {
@@ -51,7 +54,7 @@ namespace AADS.Views.Landmark
 
         //Type Landmark//
 
-        MarkerLandmark markerLandmark = new MarkerLandmark();
+        MarkerLandmarkDetail markerLandmark = new MarkerLandmarkDetail();
         private void cmbTypeLandmark_DropDown(object sender, EventArgs e)
         {
             cmbTypeLandmark.ForeColor = Color.Black;
@@ -165,8 +168,12 @@ namespace AADS.Views.Landmark
             {
                 txtLabelLandmark.Text = "";
             }
-            var marker = new GmapMarkerWithLabel(PositionConverter.ParsePointFromString(txtLocationLandmark.Text), txtLabelLandmark.Text.ToString(), markerLandmark.icon, 20);
+            var marker = new GmapMarkerWithLabel(PositionConverter.ParsePointFromString(txtLocationLandmark.Text), null, markerLandmark.icon, 20);
             GMapOverlay overlay = mainForm.GetInstance().GetOverlay("markersP");
+            MarkerLandmarkDetail detail = new MarkerLandmarkDetail(marker, cmbTypeLandmark.SelectedIndex, PositionConverter.ParsePointFromString(txtLocationLandmark.Text), txtNameLandmark.Text, txtLabelLandmark.Text);
+            dicMarker.Add(marker, detail);
+            marker.ToolTipText = "\n" + detail.Location.Lat.ToString() + " / " + detail.Location.Lng.ToString() + "\n" + detail.Label;
+            marker.ToolTipMode = MarkerTooltipMode.OnMouseOver; 
             overlay.Markers.Add(marker);
             mainForm.GetInstance().GetmainMap().Overlays.Add(overlay);
            
@@ -180,7 +187,22 @@ namespace AADS.Views.Landmark
             cmbTypeLandmark.ForeColor = Color.Gray;
         }
 
+        public void set_Detail(GMapMarker marker)
+        {
+            this.getMarker = marker;
+            if (dicMarker.ContainsKey(marker))
+            {
+                txtLocationLandmark.Text = PositionConverter.ParsePointToString(dicMarker[marker].Location, "Signed Degree");
+                cmbTypeLandmark.SelectedIndex = dicMarker[marker].Type; //ค่าไม่ยอมเปลี่ยนแบบเรียลไทม์ อย่าลืมแก้
+                Console.WriteLine(dicMarker[marker].Type);
+                txtNameLandmark.Text = dicMarker[marker].Name;
+                txtLabelLandmark.Text = dicMarker[marker].Label;
 
+                cmbTypeLandmark.ForeColor = Color.Black;
+                txtNameLandmark.ForeColor = Color.Black;
+                txtLabelLandmark.ForeColor = Color.Black;
+            }
+        }
         private void main_Load(object sender, EventArgs e)
         {
 

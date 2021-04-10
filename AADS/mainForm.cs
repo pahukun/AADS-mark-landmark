@@ -406,7 +406,22 @@ namespace AADS
         }
         void mainMap_OnMarkerClick(GMapMarker item, MouseEventArgs e)
         {
+            if (e.Button == MouseButtons.Left)
+            {
+                if (markerPage != null)
+                {
+                    foreach (var x in markerPage.panel.Controls)
+                    {
+                        if (x is Views.Landmark.main)
+                        {
+                            var control = x as Views.Landmark.main;
+                            control.set_Detail(item);
+                        }
+                    }
+                }
 
+            }
+            
         }
 
         bool isMouseDown = false;
@@ -691,7 +706,9 @@ namespace AADS
            
         }
 
-        
-       
+        private void mainMap_OnMarkerDoubleClick(GMapMarker item, MouseEventArgs e)
+        {
+
+        }
     }
 }

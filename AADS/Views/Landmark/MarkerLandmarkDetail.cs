@@ -1,4 +1,5 @@
 ﻿using GMap.NET;
+using GMap.NET.WindowsForms;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -8,18 +9,24 @@ using System.Threading.Tasks;
 
 namespace AADS.Views.Landmark
 {
-    public class MarkerLandmark
+    public class MarkerLandmarkDetail
     {
         public Bitmap icon;
-        private int id;
+        private GMapMarker marker;
+        private int type;
         private PointLatLng location;
         private string name;
         private string label;
         
-        public int ID
+        public GMapMarker Marker
         {
-            get { return id; }
-            set { id = value; }
+            get { return marker; }
+            set { marker = value; }
+        }
+        public int Type
+        {
+            get { return type; }
+            set { type = value; }
         }
         public PointLatLng Location
         {
@@ -35,6 +42,18 @@ namespace AADS.Views.Landmark
         {
             get { return label; }
             set { label = value; }
+        }
+        public MarkerLandmarkDetail()
+        {
+
+        }
+        public MarkerLandmarkDetail(GMapMarker marker, int type, PointLatLng location, string name, string label)
+        {
+            this.Marker = marker;
+            this.Type = type;
+            this.Location = location;
+            this.Name = name;
+            this.Label = label;
         }
     }
     

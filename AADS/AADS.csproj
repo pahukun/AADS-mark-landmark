@@ -274,7 +274,7 @@
     <Compile Include="Views\Landmark\main.Designer.cs">
       <DependentUpon>main.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Landmark\MarkerLandmark.cs" />
+    <Compile Include="Views\Landmark\MarkerLandmarkDetail.cs" />
     <Compile Include="Views\Pairing\main.cs">
       <SubType>Form</SubType>
     </Compile>
